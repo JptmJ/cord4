@@ -1,12 +1,13 @@
 {
-  "name": "cord4-2",
+  "name": "cord4",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seed": "node lib/seed.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",

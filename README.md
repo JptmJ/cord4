@@ -29,8 +29,7 @@ npm run dev
 Create `.env.local`:
 ```env
 MONGODB_URI=mongodb+srv://vivokbhoi00_db_user:admin123@cord4.1v5fmeb.mongodb.net/payout_mvp
-JWT_SECRET=super_secret_jwt_key_payout_mvp_2024
-SEED_SECRET=seed_payout_mvp
+JWT_SECRET=cord4_secret_key
 ```
 
 ### 4. Open the app
@@ -43,5 +42,5 @@ http://localhost:3000
 Draft → Submitted (OPS only)
 Submitted → Approved (FINANCE only)
 Submitted → Rejected (FINANCE only, reason mandatory)
-Reject → Resubmit (OPS only)
+Rejected → Resubmit (OPS only)
 ```

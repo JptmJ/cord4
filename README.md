@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Payout Manager MVP
 
-## Getting Started
+A full-stack payout management system with role-based access control, built with Next.js 14 + MongoDB.
 
-First, run the development server:
+## Demo Credentials
+| **Role** | **Email**                                   | **Password** |
+| -------- | ------------------------------------------- | ------------ |
+| OPS      | [ops@demo.com](mailto:ops@demo.com)         | ops123       |
+| FINANCE  | [finance@demo.com](mailto:finance@demo.com) | fin123       |
 
+## Tech Stack
+- **Frontend**: Next.js 14 (App Router), vanilla CSS
+- **Backend**: Next.js API Routes
+- **Database**: MongoDB Atlas
+- **Auth**: JWT via httpOnly cookies
+
+## Run Locally in Under 5 Minutes
+
+### 1. Clone & Install
 ```bash
+git clone https://github.com/JptmJ/cord4.git
+cd cord4
+npm install
+npm run seed (Database data config)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Environment Setup
+Create `.env.local`:
+```env
+MONGODB_URI=mongodb+srv://vivokbhoi00_db_user:admin123@cord4.1v5fmeb.mongodb.net/payout_mvp
+JWT_SECRET=super_secret_jwt_key_payout_mvp_2024
+SEED_SECRET=seed_payout_mvp
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Open the app
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Status Flow
+```
+Draft → Submitted (OPS only)
+Submitted → Approved (FINANCE only)
+Submitted → Rejected (FINANCE only, reason mandatory)
+Reject → Resubmit (OPS only)
+```
